@@ -1,15 +1,8 @@
-"""Metadata: SEO titles, descriptions, hashtags for game reels.
+"""Metadata: viral SEO titles, descriptions, hashtags (kreggscode voice: BUILDER).
 
-Reads the game name from the HTML file itself when possible:
-  1. <title> tag inside the HTML
-  2. <meta name="description"> / og:title hints
-  3. First <h1> on the page
-  4. window.* hints (window.TITLE, window.GAME_TITLE, ...)
-  5. Fallback: prettified file name (01-neon-runner.html -> Neon Runner)
-
-Then guesses the game kind (runner, platformer, puzzle, ...) from the
-file name + HTML text. Gaming-first language throughout: no tech-stack
-words, written for search and clicks. Output is identical on every platform.
+Same game-name/genre/technique detection as the sister channel, but a
+completely different voice so the two channels never read as duplicates:
+this one shows how the game was built and teaches one trick per reel.
 """
 import os
 import re
@@ -21,10 +14,9 @@ def _brand_tag():
     return "#" + re.sub(r"[^a-z0-9]", "", config.BRAND.lower())
 
 
-HASHTAGS = ["#browsergames", "#indiegame", "#gameplay",
-            "#gaming", "#reels"]
+HASHTAGS = ["#gamedev", "#indiegame", "#coding",
+            "#browsergames", "#howto", "#reels"]
 
-# (keyword, label) pairs checked against filename + html text
 GENRE_HINTS = [
     ("adventure", "Adventure"),
     ("runner", "Runner"),
@@ -61,6 +53,31 @@ GENRE_HINTS = [
     ("vortex", "Vortex"),
     ("neon", "Neon Arcade"),
     ("retro", "Retro Arcade"),
+]
+
+TECHNIQUE_HINTS = [
+    ("particle", "a particle system with hundreds of glowing sprites"),
+    ("parallax", "layered parallax backgrounds for real depth"),
+    ("gravity", "gravity and jump physics that just feel right"),
+    ("grappl", "a grappling-hook swing mechanic"),
+    ("hook", "a grappling-hook swing mechanic"),
+    ("trail", "motion trails that follow every single move"),
+    ("shadowblur", "neon glow rendered live on every frame"),
+    ("procedural", "procedural generation, so no two runs ever match"),
+    ("scroll", "a live code view that types itself out while you play"),
+    ("highscore", "a score-chase loop built for one-more-try"),
+    ("high score", "a score-chase loop built for one-more-try"),
+    ("island", "floating-island level design with hidden paths"),
+    ("tilemap", "tile-based levels packed with secrets"),
+    ("boss", "a boss-style showdown waiting at the end"),
+    ("combo", "a combo system that rewards risky play"),
+]
+
+HOOKS = [
+    "I built this game from a blank file. Watch it run.",
+    "Steal this game idea - then steal the trick behind it.",
+    "Nobody teaches game dev like this: one game, one trick, every day.",
+    "What if I told you this whole game fits in a single file?",
 ]
 
 
@@ -123,6 +140,20 @@ def guess_genre(filename, html_text):
     return "Arcade Game"
 
 
+def detect_techniques(html_text, limit=2):
+    """Human-readable techniques found in the game's code, in order."""
+    hay = (html_text[:40000] if html_text else "").lower()
+    found = []
+    for keyword, phrase in TECHNIQUE_HINTS:
+        if keyword in hay and phrase not in found:
+            found.append(phrase)
+        if len(found) >= limit:
+            break
+    if not found:
+        found = ["tight game-feel tuned frame by frame"]
+    return found
+
+
 GENRE_WORDS = {kw for kw, _ in GENRE_HINTS} | {
     lbl.lower() for _, lbl in GENRE_HINTS
 } | {"game"}
@@ -148,20 +179,26 @@ def build(filename, music_name, html_path=None):
     html_text = _read_html(html_path)
     name = game_name(filename, html_path)
     genre = guess_genre(filename, html_text)
-    title = f"{name} - The Browser Game You Can't Stop Playing | {config.BRAND}"
+    techs = detect_techniques(html_text)
+    hook = HOOKS[sum(bytearray(name.encode())) % len(HOOKS)]
+    trick = techs[0] + (f", plus {techs[1]}" if len(techs) > 1 else "")
+    title = f"I Coded {name} From Scratch - Play It Right Here | {config.BRAND}"
     title = title[:100]
+    article = "an" if genre[:1].lower() in "aeiou" else "a"
     description = (
-        f"{name} ({genre}) is the most addictive browser game you have seen today.\n"
-        f"Stop scrolling and watch the full gameplay, steal the high-score tricks, "
-        f"and come back tomorrow - a brand-new game drops every single day.\n\n"
-        f"New game daily. Follow {config.BRAND} so you never miss a drop."
+        f"{hook}\n\n"
+        f"This is {name}, {article} {genre.lower()} game you can play in your browser right now. "
+        f"Press play and enjoy the run - then steal the trick behind it: {trick}.\n\n"
+        f"Every trick you see here is real code, broken down so anyone can learn it. "
+        f"A new game drops here every single day. "
+        f"Follow {config.BRAND} and learn game dev one reel at a time."
     )
     tags = [
         name.lower(),
         genre.lower(),
+        "how to make a game",
+        "indie game dev",
         "browser games",
-        "indie game",
-        "gameplay",
         config.BRAND.lower(),
     ]
     return {
