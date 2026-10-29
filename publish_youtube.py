@@ -19,13 +19,16 @@ def publish(mp4_path, meta):
         from googleapiclient.discovery import build
         from googleapiclient.http import MediaFileUpload
 
+        # Same scope as the working day3 uploader: the refresh token in
+        # secrets was minted for the full YouTube scope, and requesting a
+        # narrower scope at refresh time fails with invalid_scope.
         creds = Credentials(
             None,
-            refresh_token=config.YT_REFRESH_TOKEN,
+            refresh_token=config.YT_REFRESH_TOKEN.strip(),
             token_uri="https://oauth2.googleapis.com/token",
-            client_id=config.YT_CLIENT_ID,
-            client_secret=config.YT_CLIENT_SECRET,
-            scopes=["https://www.googleapis.com/auth/youtube.upload"],
+            client_id=config.YT_CLIENT_ID.strip(),
+            client_secret=config.YT_CLIENT_SECRET.strip(),
+            scopes=["https://www.googleapis.com/auth/youtube"],
         )
         yt = build("youtube", "v3", credentials=creds, cache_discovery=False)
         body = {
@@ -49,7 +52,7 @@ def publish(mp4_path, meta):
             print(
                 "YOUTUBE: invalid_scope during token refresh. "
                 "Regenerate YOUTUBE_REFRESH_TOKEN with scope "
-                "https://www.googleapis.com/auth/youtube.upload from the same "
+                "https://www.googleapis.com/auth/youtube from the same "
                 "GCP project as YOUTUBE_CLIENT_ID/SECRET (and enable YouTube Data API v3), "
                 "then re-run. Skipped."
             )
