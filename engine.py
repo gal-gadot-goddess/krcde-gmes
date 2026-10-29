@@ -34,6 +34,15 @@ def save_history(history):
         json.dump(history, fh, indent=2, sort_keys=True)
 
 
+def _safe_publish(channel, fn, *args):
+    """One channel must never kill the other channels."""
+    try:
+        return fn(*args)
+    except Exception as e:
+        print(f"{channel.upper()}: failed ({e}), skipped")
+        return None
+
+
 def process_one(name, html_path, history, dry_run=False):
     slug = os.path.splitext(name)[0]
     print(f"ENGINE: {name}")
@@ -56,15 +65,19 @@ def process_one(name, html_path, history, dry_run=False):
 
     published = {}
     if not dry_run:
-        published["youtube"] = publish_youtube.publish(final, meta)
+        published["youtube"] = _safe_publish(
+            "youtube", publish_youtube.publish, final, meta)
         cap = meta["title"] + "\n" + meta["description"] + "\n" + meta["hashtags"]
         public_url = os.environ.get("PUBLIC_VIDEO_URL", "")
         if public_url:
-            published["instagram"] = publish_meta.publish_instagram_reel(public_url, cap)
+            published["instagram"] = _safe_publish(
+                "instagram", publish_meta.publish_instagram_reel, public_url, cap)
         else:
             # resumable byte upload: local file straight to IG, no URL needed
-            published["instagram"] = publish_meta.publish_instagram_reel_file(final, cap)
-        published["facebook"] = publish_meta.publish_facebook_video(final, meta)
+            published["instagram"] = _safe_publish(
+                "instagram", publish_meta.publish_instagram_reel_file, final, cap)
+        published["facebook"] = _safe_publish(
+            "facebook", publish_meta.publish_facebook_video, final, meta)
         import datetime as _dt
         history["posted"][name] = {"video": final, "music": music_name,
                                    "timestamp": _dt.datetime.now(
