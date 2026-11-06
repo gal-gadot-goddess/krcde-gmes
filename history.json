@@ -8,7 +8,8 @@
     "006 - Run Until the Sunrise.mp3": 1,
     "007 - When We Were Strangers.mp3": 1,
     "008 - When We Were Strangers.mp3": 1,
-    "009 - Chasing the Last Light.mp3": 1
+    "009 - Chasing the Last Light.mp3": 1,
+    "010 - Chasing the Last Light.mp3": 1
   },
   "posted": {
     "07-gearfall.html": {
@@ -18,6 +19,14 @@
       "timestamp": "2026-11-05T17:17:31.425324+00:00",
       "video": "/home/runner/work/krcde-gmes/krcde-gmes/output/07-gearfall-reel.mp4",
       "youtube": "IUyRROU_mcg"
+    },
+    "08-cinder-climb.html": {
+      "facebook": "1734278008118356",
+      "instagram": "18117057062148923",
+      "music": "010 - Chasing the Last Light.mp3",
+      "timestamp": "2026-11-06T16:42:27.136865+00:00",
+      "video": "/home/runner/work/krcde-gmes/krcde-gmes/output/08-cinder-climb-reel.mp4",
+      "youtube": "FB8ylev28As"
     },
     "10-dune-drifter.html": {
       "facebook": "1110339531712987",
