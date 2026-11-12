@@ -14,7 +14,8 @@
     "012 - Gravity.mp3": 1,
     "013 - Falling Into the Weekend.mp3": 1,
     "014 - Falling Into the Weekend.mp3": 1,
-    "015 - We Were Here.mp3": 1
+    "015 - We Were Here.mp3": 1,
+    "016 - We Were Here.mp3": 1
   },
   "posted": {
     "01-skyhook.html": {
@@ -32,6 +33,14 @@
       "timestamp": "2026-11-10T16:56:45.415412+00:00",
       "video": "/home/runner/work/krcde-gmes/krcde-gmes/output/03-deep-drift-reel.mp4",
       "youtube": "4im6uCVwb4k"
+    },
+    "04-lilyhop.html": {
+      "facebook": "1214572434476880",
+      "instagram": "17918654466466051",
+      "music": "016 - We Were Here.mp3",
+      "timestamp": "2026-11-12T17:31:07.538279+00:00",
+      "video": "/home/runner/work/krcde-gmes/krcde-gmes/output/04-lilyhop-reel.mp4",
+      "youtube": "geUSnlyGs8w"
     },
     "04-mine-rush.html": {
       "facebook": "1461900442674036",
