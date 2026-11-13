@@ -15,7 +15,8 @@
     "013 - Falling Into the Weekend.mp3": 1,
     "014 - Falling Into the Weekend.mp3": 1,
     "015 - We Were Here.mp3": 1,
-    "016 - We Were Here.mp3": 1
+    "016 - We Were Here.mp3": 1,
+    "017 - Electric Between Us.mp3": 1
   },
   "posted": {
     "01-skyhook.html": {
@@ -33,6 +34,14 @@
       "timestamp": "2026-11-10T16:56:45.415412+00:00",
       "video": "/home/runner/work/krcde-gmes/krcde-gmes/output/03-deep-drift-reel.mp4",
       "youtube": "4im6uCVwb4k"
+    },
+    "03-ridge-rally.html": {
+      "facebook": "1677536877099180",
+      "instagram": "17978514990161112",
+      "music": "017 - Electric Between Us.mp3",
+      "timestamp": "2026-11-13T17:05:42.754927+00:00",
+      "video": "/home/runner/work/krcde-gmes/krcde-gmes/output/03-ridge-rally-reel.mp4",
+      "youtube": "ltN3Es753B0"
     },
     "04-lilyhop.html": {
       "facebook": "1214572434476880",
