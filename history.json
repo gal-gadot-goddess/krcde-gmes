@@ -16,7 +16,8 @@
     "014 - Falling Into the Weekend.mp3": 1,
     "015 - We Were Here.mp3": 1,
     "016 - We Were Here.mp3": 1,
-    "017 - Electric Between Us.mp3": 1
+    "017 - Electric Between Us.mp3": 1,
+    "018 - Electric Between Us.mp3": 1
   },
   "posted": {
     "01-skyhook.html": {
@@ -26,6 +27,14 @@
       "timestamp": "2026-11-11T17:05:05.951819+00:00",
       "video": "/home/runner/work/krcde-gmes/krcde-gmes/output/01-skyhook-reel.mp4",
       "youtube": "UXSStbQQal4"
+    },
+    "02-fernway.html": {
+      "facebook": "1699135854972698",
+      "instagram": "17978140158175075",
+      "music": "018 - Electric Between Us.mp3",
+      "timestamp": "2026-11-14T15:42:40.831681+00:00",
+      "video": "/home/runner/work/krcde-gmes/krcde-gmes/output/02-fernway-reel.mp4",
+      "youtube": "IGqCk4Bprmo"
     },
     "03-deep-drift.html": {
       "facebook": "28945841031774290",
