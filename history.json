@@ -27,7 +27,8 @@
     "025 - After Hours.mp3": 1,
     "026 - After Hours.mp3": 1,
     "027 - We Don't Have to Say Goodbye.mp3": 1,
-    "028 - We Don't Have to Say Goodbye.mp3": 1
+    "028 - We Don't Have to Say Goodbye.mp3": 1,
+    "029 - Neon on the Water.mp3": 1
   },
   "posted": {
     "01-skyhook.html": {
@@ -157,6 +158,14 @@
       "timestamp": "2026-11-19T18:08:58.374253+00:00",
       "video": "/home/runner/work/krcde-gmes/krcde-gmes/output/16-sporefall-reel.mp4",
       "youtube": "pWWWWqLTEHE"
+    },
+    "16-vinefall.html": {
+      "facebook": "29932125486370764",
+      "instagram": "18020816279745569",
+      "music": "029 - Neon on the Water.mp3",
+      "timestamp": "2026-11-25T19:07:42.019110+00:00",
+      "video": "/home/runner/work/krcde-gmes/krcde-gmes/output/16-vinefall-reel.mp4",
+      "youtube": "dqDNIlLRki0"
     },
     "17-chrome-drift.html": {
       "facebook": "2938181723217195",
