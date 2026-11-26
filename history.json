@@ -28,7 +28,8 @@
     "026 - After Hours.mp3": 1,
     "027 - We Don't Have to Say Goodbye.mp3": 1,
     "028 - We Don't Have to Say Goodbye.mp3": 1,
-    "029 - Neon on the Water.mp3": 1
+    "029 - Neon on the Water.mp3": 1,
+    "030 - Heartbeat After Midnight.mp3": 1
   },
   "posted": {
     "01-skyhook.html": {
@@ -134,6 +135,14 @@
       "timestamp": "2026-11-22T17:01:56.889858+00:00",
       "video": "/home/runner/work/krcde-gmes/krcde-gmes/output/12-gravity-foundry-reel.mp4",
       "youtube": "mK84OMQi5XA"
+    },
+    "14-abysslight.html": {
+      "facebook": "1449425753450980",
+      "instagram": "18044172140841863",
+      "music": "030 - Heartbeat After Midnight.mp3",
+      "timestamp": "2026-11-26T18:56:41.905979+00:00",
+      "video": "/home/runner/work/krcde-gmes/krcde-gmes/output/14-abysslight-reel.mp4",
+      "youtube": "Bf-jMB2Xqoc"
     },
     "14-tidebreaker.html": {
       "facebook": "1053156963850324",
